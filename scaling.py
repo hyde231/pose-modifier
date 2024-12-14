@@ -150,9 +150,9 @@ def get_scaling_factors(age: int, gender: str = "female") -> Dict[str, float]:
             "jaw_factor": 1.0, "nose_factor": 1.0, "face_contour_factor": 1.05,
         }),
         (17, 19, {
-            "head_ratio": 0.16, "torso_ratio": 0.36, "arm_ratio": 0.20, "leg_ratio": 0.29,
+            "head_ratio": 0.17, "torso_ratio": 0.36, "arm_ratio": 0.20, "leg_ratio": 0.29,
             "hand_ratio": 1.1, "foot_ratio": 1.1, "eye_factor": 1.0, "mouth_factor": 1.0,
-            "jaw_factor": 0.95, "nose_factor": 1.0, "face_contour_factor": 1.0,
+            "jaw_factor": 1.0, "nose_factor": 1.0, "face_contour_factor": 1.05,
         }),
     ]
 
@@ -169,6 +169,7 @@ def get_scaling_factors(age: int, gender: str = "female") -> Dict[str, float]:
         scaling_factors["face_contour_factor"] *= 1.05  # Rounder face contour
 
     return scaling_factors
+
 
 def scale_face(
     face_points: List[Optional[Tuple[float, float]]],

@@ -221,7 +221,7 @@ class Pose:
             "face_contour_factor": 1.0,
         }
         """
-        
+
         adjusted_scaling_factors = {
             key: target_scaling_factors[key] / input_scaling_factors[key]
             for key in input_scaling_factors.keys()
@@ -300,10 +300,10 @@ class Pose:
 
         # Crop to canvas
         def crop_point(point):
-            return (
-                max(0, min(self.canvas_width, point[0])),
-                max(0, min(self.canvas_height, point[1]))
-            )
+            if 0 <= point[0] <= self.canvas_width and 0 <= point[1] <= self.canvas_height:
+                return point
+            else:
+                return None
 
         for key in scaled_keypoints:
             if scaled_keypoints[key] is not None:
